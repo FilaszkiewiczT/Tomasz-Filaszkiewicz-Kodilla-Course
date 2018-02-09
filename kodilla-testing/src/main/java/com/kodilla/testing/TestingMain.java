@@ -25,13 +25,13 @@ public class TestingMain {
         final Integer addResult = calculator.add();
         final Integer subtractResult = calculator.subtract();
 
-        if (addResult instanceof Integer && (addResult == calculator.getA() + calculator.getB())){
+        if (addResult == calculator.getA() + calculator.getB()){
             System.out.println("Testing method add(): test OK");
         } else {
             System.out.println("Testing method add(): Error!");
         }
 
-        if (subtractResult instanceof Integer && (subtractResult == calculator.getA() - calculator.getB())){
+        if (subtractResult == calculator.getA() - calculator.getB()){
             System.out.println("Testing method subtract(): test OK");
         } else {
             System.out.println("Testing method subtract(): Error!");
