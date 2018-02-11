@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -11,7 +12,7 @@ public class Main {
         for (int n = 1; n <= 10; n++) {
             list1.add(n);
         }
-        ArrayList<Integer> newList = oddNumbersExterminator.exterminate((ArrayList<Integer>) list1);
+        List<Integer> newList = oddNumbersExterminator.exterminate(list1);
 
         System.out.println(newList);
 

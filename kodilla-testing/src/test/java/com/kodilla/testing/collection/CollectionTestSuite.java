@@ -1,9 +1,13 @@
 package com.kodilla.testing.collection;
 
-import java.util.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.*;
-import com.kodilla.testing.collection.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class CollectionTestSuite {
 
@@ -24,9 +28,9 @@ public class CollectionTestSuite {
         List<Integer> list1 = new ArrayList<>();
         //When
         System.out.println("Testing List size: " + list1.size());
-        ArrayList<Integer> newList = oddNumbersExterminator.exterminate((ArrayList<Integer>) list1);
+        List<Integer> newList = oddNumbersExterminator.exterminate(list1);
         //Then
-        Assert.assertEquals(list1, newList);
+        assertEquals(list1, newList);
     }
 
     @Test
@@ -42,8 +46,8 @@ public class CollectionTestSuite {
         }
         //When
         System.out.println("Testing Normal List: " + list1);
-        ArrayList<Integer> newList = oddNumbersExterminator.exterminate((ArrayList<Integer>) list1);
+        List<Integer> newList = oddNumbersExterminator.exterminate(list1);
         //Then
-        Assert.assertEquals(list1, newList);
+        assertEquals(list1, newList);
     }
 }
