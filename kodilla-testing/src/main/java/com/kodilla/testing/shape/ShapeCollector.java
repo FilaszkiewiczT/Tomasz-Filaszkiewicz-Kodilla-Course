@@ -15,7 +15,12 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-        return figurs.get(n);
+        Shape figure = null;
+        if (n >= 0 && n < figurs.size()) {
+            figure = figurs.get(n);
+        }
+        return figure;
+
     }
 
     public boolean showFigures() {
