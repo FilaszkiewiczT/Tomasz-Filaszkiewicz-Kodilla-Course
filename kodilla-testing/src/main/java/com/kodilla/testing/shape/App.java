@@ -3,10 +3,10 @@ package com.kodilla.testing.shape;
 public class App {
 
     public static void main(String[] args) {
-        Circle circle1 = new Circle("Circle1", 10);
-        Square square1 = new Square("Square1", 20);
-        Triangle triangle1 = new Triangle("Triangle1", 30);
-        Triangle triangle2 = new Triangle("Triangle2", 30);
+        Circle circle1 = new Circle("Shape1", 12.1);
+        Square square1 = new Square("Shape2", 20.5);
+        Triangle triangle1 = new Triangle("Shape3", 30.1, 5.0);
+        Triangle triangle2 = new Triangle("Shape4", 30.1, 3.5);
 
         ShapeCollector shapeCollector = new ShapeCollector();
 
