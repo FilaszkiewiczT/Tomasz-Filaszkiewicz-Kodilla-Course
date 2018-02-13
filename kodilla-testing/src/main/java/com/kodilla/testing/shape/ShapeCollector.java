@@ -23,9 +23,8 @@ public class ShapeCollector {
 
     }
 
-    public boolean showFigures() {
-        System.out.println(figurs);
-        return true;
+    public List<Shape> showFigures() {
+        return figurs;
     }
 
     public int getFigursListSize() {
