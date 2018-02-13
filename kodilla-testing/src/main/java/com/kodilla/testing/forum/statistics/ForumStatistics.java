@@ -13,13 +13,13 @@ public class ForumStatistics {
         this.numberOfComments = statistics.commentsCount();
         this.numberOfPosts = statistics.postsCount();
         if (numberOfUsers > 0) {
-            this.avgPostPerUser = numberOfPosts / numberOfUsers;
+            this.avgPostPerUser = (double)numberOfPosts / (double)numberOfUsers;
         }
         if (numberOfUsers > 0) {
-            this.avgCommentPerUser = numberOfComments / numberOfUsers;
+            this.avgCommentPerUser = (double)numberOfComments / (double)numberOfUsers;
         }
         if (numberOfPosts > 0) {
-            this.avgCommentPerPost = numberOfComments / numberOfPosts;
+            this.avgCommentPerPost = (double)numberOfComments / (double)numberOfPosts;
         }
 
     }
