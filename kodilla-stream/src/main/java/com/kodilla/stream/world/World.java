@@ -6,14 +6,10 @@ import java.util.List;
 
 public final class World {
 
-    private List<Continent> world = new ArrayList<>();
+    private final List<Continent> world = new ArrayList<>();
 
     public void addContinents(Continent continent) {
         world.add(continent);
-    }
-
-    public List<Continent> getWorld() {
-        return world;
     }
 
     public BigDecimal getPeopleQuantity() {
