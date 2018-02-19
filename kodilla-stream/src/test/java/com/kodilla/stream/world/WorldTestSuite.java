@@ -10,18 +10,18 @@ public class WorldTestSuite {
     @Test
     public void testGetPeopleQuantity() {
         //Given
-        Continent continent1 = new Continent();
-        Continent continent2 = new Continent();
-        continent1.addCountry(new Country("Country1", new BigDecimal("20000000")));
-        continent1.addCountry(new Country("Country2", new BigDecimal("10000000")));
-        continent1.addCountry(new Country("Country3", new BigDecimal("30000000")));
-        continent2.addCountry(new Country("Country4", new BigDecimal("15000000")));
-        continent2.addCountry(new Country("Country5", new BigDecimal("20000000")));
-        continent2.addCountry(new Country("Country6", new BigDecimal("15000000")));
+        Continent europe = new Continent();
+        Continent africa = new Continent();
+        europe.addCountry(new Country("Germany", new BigDecimal("20000000")));
+        europe.addCountry(new Country("Poland", new BigDecimal("10000000")));
+        europe.addCountry(new Country("France", new BigDecimal("30000000")));
+        africa.addCountry(new Country("Libya", new BigDecimal("15000000")));
+        africa.addCountry(new Country("Algeria", new BigDecimal("20000000")));
+        africa.addCountry(new Country("Egypt", new BigDecimal("15000000")));
         //When
         World world = new World();
-        world.addContinents(continent1);
-        world.addContinents(continent2);
+        world.addContinents(europe);
+        world.addContinents(africa);
         //Then
         BigDecimal bigDecimal = new BigDecimal("110000000");
         assertEquals(world.getPeopleQuantity(), bigDecimal);
