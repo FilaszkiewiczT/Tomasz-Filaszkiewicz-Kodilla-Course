@@ -5,7 +5,7 @@ public class ExtraFoodShop implements Shops {
     private final static String SHOP_NAME = "ExtraFoodShop";
     @Override
     public boolean process() {
-        System.out.println(SHOP_NAME + ", rozpoczyna realizację zamówienia");
+        System.out.println(SHOP_NAME + ", przetwarza zamówienie");
         return true;
     }
 

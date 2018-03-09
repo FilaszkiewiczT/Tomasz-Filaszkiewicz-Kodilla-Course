@@ -1,23 +1,22 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import com.kodilla.good.patterns.challenges.food2door.customers.Customer;
-import com.kodilla.good.patterns.challenges.food2door.products.ListOfProductsToOrder;
-import com.kodilla.good.patterns.challenges.food2door.products.Product;
-import com.kodilla.good.patterns.challenges.food2door.shops.ExtraFoodShop;
+import com.kodilla.good.patterns.challenges.food2door.shops.Shops;
 
 public class OrderRequest {
 
-    public Order retrieve() {
-        Customer customer1 = new Customer("Adam Kowalski", "00-00 Katowice");
-        ListOfProductsToOrder orderList1 = new ListOfProductsToOrder();
-        orderList1.addProductsToOrderList(new Product("Masło", 5.0));
-        orderList1.addProductsToOrderList(new Product("Cukier", 2.5));
-        orderList1.addProductsToOrderList(new Product("Mleko", 2.5));
-        orderList1.addProductsToOrderList(new Product("Kakao", 15.5));
-        orderList1.addProductsToOrderList(new Product("Jogurt", 1.5));
+    private final Order order;
+    private final Shops shops;
 
-        Order order1 = new Order(customer1, orderList1, new ExtraFoodShop());
+    public OrderRequest(Order order) {
+        this.order = order;
+        this.shops = order.getShop();
+    }
 
-        return order1;
+    public Order getOrder() {
+        return order;
+    }
+
+    public Shops getShops() {
+        return shops;
     }
 }

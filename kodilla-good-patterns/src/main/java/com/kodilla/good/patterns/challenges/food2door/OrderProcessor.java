@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-
-
 public class OrderProcessor {
     private InformCustomerService informCustomerService;
     private OrderService orderService;
@@ -12,11 +10,12 @@ public class OrderProcessor {
     }
 
     public void processor(OrderRequest orderRequest){
-        informCustomerService.firstInformation(orderRequest.retrieve().getCustomer());
-        boolean isOrdered = orderService.orderService(orderRequest.retrieve().getShop());
+        informCustomerService.firstInformation(orderRequest.getOrder().getCustomer());
+        System.out.println("Przekazujemy zamówienie do: " + orderRequest.getShops().getShopName());
+        boolean isOrdered = orderService.orderService(orderRequest.getShops());
 
         if(isOrdered){
-            informCustomerService.secondInformation(orderRequest.retrieve().getShop().getShopName());
+            informCustomerService.secondInformation(orderRequest.getShops().getShopName());
         }else{
             informCustomerService.thirdInformation();
         }
