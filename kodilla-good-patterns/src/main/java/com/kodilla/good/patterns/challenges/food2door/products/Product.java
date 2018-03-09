@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door.Products;
+package com.kodilla.good.patterns.challenges.food2door.products;
 
 public class Product {
     final private String productName;

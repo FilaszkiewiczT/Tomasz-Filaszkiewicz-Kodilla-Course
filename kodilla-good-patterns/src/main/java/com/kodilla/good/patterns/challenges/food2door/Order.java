@@ -1,8 +1,8 @@
-package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.food2door;
 
-import com.kodilla.good.patterns.challenges.Food2Door.Customers.Customer;
-import com.kodilla.good.patterns.challenges.Food2Door.Products.ListOfProductsToOrder;
-import com.kodilla.good.patterns.challenges.Food2Door.Shops.Shops;
+import com.kodilla.good.patterns.challenges.food2door.customers.Customer;
+import com.kodilla.good.patterns.challenges.food2door.products.ListOfProductsToOrder;
+import com.kodilla.good.patterns.challenges.food2door.shops.Shops;
 
 public class Order {
     private final Customer customer;

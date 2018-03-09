@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door.Shops;
+package com.kodilla.good.patterns.challenges.food2door.shops;
 
 public class ExtraFoodShop implements Shops {
 

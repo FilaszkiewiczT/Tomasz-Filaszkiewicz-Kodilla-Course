@@ -1,6 +1,6 @@
-package com.kodilla.good.patterns.challenges.Food2Door.Shops;
+package com.kodilla.good.patterns.challenges.food2door.shops;
 
-public class HealthyShop implements Shops {
+public class GlutenFreeShop implements Shops {
     @Override
     public boolean process() {
         System.out.println("Przyjęto do realizacji");
@@ -9,6 +9,6 @@ public class HealthyShop implements Shops {
 
     @Override
     public String getShopName(){
-        return "HealthyShop";
+        return "GlutenFreeShop";
     }
 }
