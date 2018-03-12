@@ -2,7 +2,8 @@ package com.kodilla.good.patterns.challenges.flights;
 
 public class FlightMain {
     public static void main(String[] args) {
-        FlightFindProcessor flightFindProcessor = new FlightFindProcessor();
+        FlightsData flightsData = new FlightsData();
+        FlightFindProcessor flightFindProcessor = new FlightFindProcessor(flightsData);
 
         flightFindProcessor.fingFlightTo("Gdańsk");
         flightFindProcessor.findFlightFrom("Katowice");

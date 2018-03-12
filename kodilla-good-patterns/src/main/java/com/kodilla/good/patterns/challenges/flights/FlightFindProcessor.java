@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FlightFindProcessor {
-    FlightsData flightsData = new FlightsData();
+    private final FlightsData flightsData;
+
+    public FlightFindProcessor(FlightsData flightsData) {
+        this.flightsData = flightsData;
+    }
 
     public void fingFlightTo(String arrivalCity) {
         List<String> possibleFlights = flightsData.getFlights().stream()
