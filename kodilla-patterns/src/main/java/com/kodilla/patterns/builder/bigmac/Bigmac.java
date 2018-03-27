@@ -51,6 +51,18 @@ public class Bigmac {
         return ingredients;
     }
 
+    public String getRoll() {
+        return roll;
+    }
+
+    public int getBurgers() {
+        return burgers;
+    }
+
+    public String getSause() {
+        return sause;
+    }
+
     @Override
     public String toString() {
         return "Bigmac{" +
