@@ -42,7 +42,7 @@ public class Bigmac {
             return this;
         }
 
-        public Bigmac build() throws IllegalArgumentException {
+        public Bigmac build() {
             if (roll == null || burgers <= 0) {
                 throw new IllegalArgumentException("Hamburger must have roll and min. 1 burger");
             }
