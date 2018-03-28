@@ -16,7 +16,7 @@ public class BigmacTestSuite {
                 .ingredients("cheese")
                 .build();
         System.out.println(bigmac);
-        //When
+
         int amountOfIngredients = bigmac.getIngredients().size();
         String rollType = bigmac.getRoll();
         int numberOfBurgers = bigmac.getBurgers();
@@ -27,5 +27,27 @@ public class BigmacTestSuite {
         Assert.assertEquals(rollType, "no sezam");
         Assert.assertEquals(numberOfBurgers, 2);
         Assert.assertEquals(sauseType, "standard");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testHamburgerWithNoBurgers() {
+        //Given
+        Bigmac bigmac = new Bigmac.BigmacBuilder()
+                .roll("no sezam")
+                .sause("standard")
+                .ingredients("chilli")
+                .build();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testHamburgerWithNoRoll() {
+        //Given
+        Bigmac bigmac = new Bigmac.BigmacBuilder()
+                .burgers(1)
+                .sause("standard")
+                .ingredients("chilli")
+                .build();
+        //When
+        //Then
     }
 }
