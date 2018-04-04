@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "TASKLISTS")
 public class TaskList {
-    private long id;
+    private Long id;
     private String listName;
     private String description;
 
@@ -21,7 +21,7 @@ public class TaskList {
     @Id
     @GeneratedValue
     @Column(name = "ID", unique = true)
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
