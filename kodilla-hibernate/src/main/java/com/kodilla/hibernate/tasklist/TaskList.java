@@ -31,7 +31,7 @@ public class TaskList {
         return description;
     }
 
-    private void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -42,4 +42,5 @@ public class TaskList {
     private void setDescription(String description) {
         this.description = description;
     }
+
 }

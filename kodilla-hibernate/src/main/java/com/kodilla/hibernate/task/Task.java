@@ -1,5 +1,7 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -7,10 +9,16 @@ import java.util.Date;
 @Entity
 @Table(name = "TASKS")
 public class Task {
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String description;
+    @NotNull
     private Date created;
     private int duration;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASKS_FINANCIALS_ID")
+    private TaskFinancialDetails taskFinancialDetails;
 
     public Task() {
     }
@@ -21,31 +29,23 @@ public class Task {
         this.duration = duration;
     }
 
-    @Id
-    @NotNull
-    @GeneratedValue
-    @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
 
-    @NotNull
-    @Column(name = "CREATED")
     public Date getCreated() {
         return created;
     }
 
-    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
 
-    private void setId(int id) {
+    private void setId(Long id) {
         this.id = id;
     }
 
@@ -60,4 +60,13 @@ public class Task {
     private void setDuration(int duration) {
         this.duration = duration;
     }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
 }

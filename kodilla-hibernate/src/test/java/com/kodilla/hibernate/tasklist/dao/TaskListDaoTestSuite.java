@@ -30,4 +30,5 @@ public class TaskListDaoTestSuite {
         Long id = readTaskList.get(0).getId();
         taskListDao.delete(id);
     }
+
 }
