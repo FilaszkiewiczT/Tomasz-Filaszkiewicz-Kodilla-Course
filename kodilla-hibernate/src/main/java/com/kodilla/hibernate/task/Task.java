@@ -19,6 +19,9 @@ public class Task {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKS_FINANCIALS_ID")
     private TaskFinancialDetails taskFinancialDetails;
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    private TaskList taskList;
 
     public Task() {
     }
@@ -69,4 +72,11 @@ public class Task {
         return taskFinancialDetails;
     }
 
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
 }
