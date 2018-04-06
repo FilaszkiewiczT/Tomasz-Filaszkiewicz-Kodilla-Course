@@ -72,15 +72,11 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(null, invoiceId);
 
         //CleanUp
-        try {
-            productDao.delete(p1Id);
-            productDao.delete(p2Id);
-            invoiceDao.delete(invoiceId);
-            itemDao.delete(i1Id);
-            itemDao.delete(i2Id);
-            itemDao.delete(i3Id);
-        } catch (Exception e) {
-
-        }
+        productDao.delete(p1Id);
+        productDao.delete(p2Id);
+        invoiceDao.delete(invoiceId);
+        itemDao.delete(i1Id);
+        itemDao.delete(i2Id);
+        itemDao.delete(i3Id);
     }
 }
