@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.task.dao;
 
-import com.kodilla.hibernate.task.Tasks;
+import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,14 +22,14 @@ public class TasksDaoTestSuite {
     @Test
     public void testTaskDaoSave() {
         //Given
-        Tasks tasks = new Tasks(DESCRIPTION, 7);
+        Task task = new Task(DESCRIPTION, 7);
 
         //When
-        taskDao.save(tasks);
+        taskDao.save(task);
 
         //Then
-        Long id = tasks.getId();
-        Tasks readTasks = taskDao.findOne(id);
+        Long id = task.getId();
+        Task readTasks = taskDao.findOne(id);
         Assert.assertEquals(id, readTasks.getId());
 
         //CleanUp
@@ -39,12 +39,12 @@ public class TasksDaoTestSuite {
     @Test
     public void testTaskDaoFindByDuration() {
         //Given
-        Tasks tasks = new Tasks(DESCRIPTION, 7);
+        Task tasks = new Task(DESCRIPTION, 7);
         taskDao.save(tasks);
         int duration = tasks.getDuration();
 
         //When
-        List<Tasks> readTasks = taskDao.findByDuration(duration);
+        List<Task> readTasks = taskDao.findByDuration(duration);
 
         //Then
         Assert.assertEquals(1, readTasks.size());
@@ -57,7 +57,7 @@ public class TasksDaoTestSuite {
     @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given
-        Tasks tasks = new Tasks(DESCRIPTION, 30);
+        Task tasks = new Task(DESCRIPTION, 30);
         tasks.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
 
         //When

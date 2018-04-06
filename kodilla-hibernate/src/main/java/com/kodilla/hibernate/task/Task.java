@@ -22,14 +22,14 @@ import java.util.Date;
 })
 @NamedNativeQuery(
         name = "Task.retrieveTasksWithEnoughTime",
-        query = "SELECT * FROM TASKS" +
+        query = "SELECT * FROM TASK" +
                 " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
-        resultClass = Tasks.class
+        resultClass = Task.class
 )
 
 @Entity
-@Table(name = "TASKS")
-public class Tasks {
+@Table(name = "TASK")
+public class Task {
     @Id
     @GeneratedValue
     private Long id;
@@ -44,10 +44,10 @@ public class Tasks {
     @JoinColumn(name = "TASKLIST_ID")
     private TaskList taskList;
 
-    public Tasks() {
+    public Task() {
     }
 
-    public Tasks(String description, int duration) {
+    public Task(String description, int duration) {
         this.description = description;
         this.created = new Date();
         this.duration = duration;

@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.tasklist.dao;
 
-import com.kodilla.hibernate.task.Tasks;
+import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.task.dao.TaskDao;
 import com.kodilla.hibernate.tasklist.TaskList;
@@ -40,8 +40,8 @@ public class TasksListDaoTestSuite {
     @Test
     public void testTaskListDaoSaveWithTasks() {
         //Given
-        Tasks tasks = new Tasks("Test: Learn Hibernate", 14);
-        Tasks tasks2 = new Tasks("Test: Write some entities", 3);
+        Task tasks = new Task("Test: Learn Hibernate", 14);
+        Task tasks2 = new Task("Test: Write some entities", 3);
         TaskFinancialDetails tfd = new TaskFinancialDetails(new BigDecimal(20), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
         tasks.setTaskFinancialDetails(tfd);
@@ -66,10 +66,10 @@ public class TasksListDaoTestSuite {
     @Test
     public void testNamedQueries() {
         //Given
-        Tasks tasks1 = new Tasks("Test: Study Hibernate", 3);
-        Tasks tasks2 = new Tasks("Test: Practice Named Queries", 6);
-        Tasks tasks3 = new Tasks("Test: Study native queries", 7);
-        Tasks tasks4 = new Tasks("Test: Makse some tests", 13);
+        Task tasks1 = new Task("Test: Study Hibernate", 3);
+        Task tasks2 = new Task("Test: Practice Named Queries", 6);
+        Task tasks3 = new Task("Test: Study native queries", 7);
+        Task tasks4 = new Task("Test: Makse some tests", 13);
 
         TaskFinancialDetails tfd1 = new TaskFinancialDetails(new BigDecimal(5), false);
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
@@ -96,10 +96,10 @@ public class TasksListDaoTestSuite {
         Long id = taskList.getId();
 
         //When
-        List<Tasks> longTasks = taskDao.retrieveLongTasks();
-        List<Tasks> shortTasks = taskDao.retrieveShortTasks();
-        List<Tasks> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
-        List<Tasks> durationLongerThenTasks = taskDao.retrieveTasksWithDurationLongerThen(6);
+        List<Task> longTasks = taskDao.retrieveLongTasks();
+        List<Task> shortTasks = taskDao.retrieveShortTasks();
+        List<Task> enoughTimeTasks = taskDao.retrieveTasksWithEnoughTime();
+        List<Task> durationLongerThenTasks = taskDao.retrieveTasksWithDurationLongerThen(6);
         //Then
         try {
             Assert.assertEquals(2, longTasks.size());
