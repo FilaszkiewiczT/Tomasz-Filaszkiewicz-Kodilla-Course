@@ -1,6 +1,6 @@
 package com.kodilla.hibernate.task.dao;
 
-import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.Tasks;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TaskDaoTestSuite {
+public class TasksDaoTestSuite {
     @Autowired
     private TaskDao taskDao;
     private static final String DESCRIPTION = "Test: Learn Hibernate";
@@ -22,15 +22,15 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoSave() {
         //Given
-        Task task = new Task(DESCRIPTION, 7);
+        Tasks tasks = new Tasks(DESCRIPTION, 7);
 
         //When
-        taskDao.save(task);
+        taskDao.save(tasks);
 
         //Then
-        Long id = task.getId();
-        Task readTask = taskDao.findOne(id);
-        Assert.assertEquals(id, readTask.getId());
+        Long id = tasks.getId();
+        Tasks readTasks = taskDao.findOne(id);
+        Assert.assertEquals(id, readTasks.getId());
 
         //CleanUp
         taskDao.delete(id);
@@ -39,12 +39,12 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoFindByDuration() {
         //Given
-        Task task = new Task(DESCRIPTION, 7);
-        taskDao.save(task);
-        int duration = task.getDuration();
+        Tasks tasks = new Tasks(DESCRIPTION, 7);
+        taskDao.save(tasks);
+        int duration = tasks.getDuration();
 
         //When
-        List<Task> readTasks = taskDao.findByDuration(duration);
+        List<Tasks> readTasks = taskDao.findByDuration(duration);
 
         //Then
         Assert.assertEquals(1, readTasks.size());
@@ -57,12 +57,12 @@ public class TaskDaoTestSuite {
     @Test
     public void testTaskDaoSaveWithFinancialDetails() {
         //Given
-        Task task = new Task(DESCRIPTION, 30);
-        task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
+        Tasks tasks = new Tasks(DESCRIPTION, 30);
+        tasks.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(120), false));
 
         //When
-        taskDao.save(task);
-        Long id = task.getId();
+        taskDao.save(tasks);
+        Long id = tasks.getId();
 
         //Then
         Assert.assertNotEquals(null, id);

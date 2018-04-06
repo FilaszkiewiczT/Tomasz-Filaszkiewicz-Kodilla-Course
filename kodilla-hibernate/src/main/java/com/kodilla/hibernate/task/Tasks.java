@@ -24,12 +24,12 @@ import java.util.Date;
         name = "Task.retrieveTasksWithEnoughTime",
         query = "SELECT * FROM TASKS" +
                 " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
-        resultClass = Task.class
+        resultClass = Tasks.class
 )
 
 @Entity
 @Table(name = "TASKS")
-public class Task {
+public class Tasks {
     @Id
     @GeneratedValue
     private Long id;
@@ -44,10 +44,10 @@ public class Task {
     @JoinColumn(name = "TASKLIST_ID")
     private TaskList taskList;
 
-    public Task() {
+    public Tasks() {
     }
 
-    public Task(String description, int duration) {
+    public Tasks(String description, int duration) {
         this.description = description;
         this.created = new Date();
         this.duration = duration;
