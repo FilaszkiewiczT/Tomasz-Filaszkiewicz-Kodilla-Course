@@ -11,7 +11,6 @@ import java.util.List;
 )
 
 @Entity
-@Table(name = "EMPLOYEES")
 public class Employee {
     @Id
     @GeneratedValue

@@ -6,12 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 @NamedNativeQuery(
         name = "Company.findByThreeCharsPrefix",
-        query = "SELECT * FROM COMPANIES" +
+        query = "SELECT * FROM COMPANY" +
                 " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :PREFIX",
         resultClass = Company.class
 )
 @Entity
-@Table(name = "COMPANIES")
 public class Company {
     @Id
     @GeneratedValue
