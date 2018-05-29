@@ -9,7 +9,12 @@ import java.util.List;
         name = "Employee.findByLastname",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
-
+@NamedNativeQuery(
+        name = "Employee.retrievedEmployeesByAnyGivenLastNameFragment",
+        query = "SELECT * FROM employees" +
+                " WHERE LASTNAME LIKE CONCAT('%', :LASTNAMEFRAGMENT, '%')",
+        resultClass = Employee.class
+)
 @Entity
 public class Employee {
     @Id
@@ -20,11 +25,11 @@ public class Employee {
     private String firstname;
     @NotNull
     private String lastname;
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
-            joinColumns = {@JoinColumn (name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
-            inverseJoinColumns = {@JoinColumn (name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
+            joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "COMPANY_ID", referencedColumnName = "COMPANY_ID")}
     )
     private List<Company> companies = new ArrayList<>();
 

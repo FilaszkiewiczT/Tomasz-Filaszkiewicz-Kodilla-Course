@@ -4,12 +4,21 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-@NamedNativeQuery(
-        name = "Company.findByThreeCharsPrefix",
-        query = "SELECT * FROM COMPANY" +
-                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :PREFIX",
-        resultClass = Company.class
-)
+
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.findByThreeCharsPrefix",
+                query = "SELECT * FROM COMPANY" +
+                        " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :PREFIX",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrievedCompaniesByAnyGivenNameFragment",
+                query = "SELECT * FROM companies" +
+                        " WHERE COMPANY_NAME LIKE CONCAT('%', :NAMEFRAGMENT, '%')",
+                resultClass = Company.class
+        )
+})
 @Entity
 public class Company {
     @Id
@@ -19,7 +28,7 @@ public class Company {
     @NotNull
     @Column(name = "COMPANY_NAME")
     private String name;
-    @ManyToMany (cascade = CascadeType.ALL, mappedBy = "companies")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     private List<Employee> employees = new ArrayList<>();
 
     public Company() {
