@@ -8,10 +8,10 @@ public class TaskListTestSuite {
     @Test
     public void testUpdate() {
         //Givern
-        TaskList student1 = new Student1TaskList();
-        TaskList student2 = new Student2TaskList();
-        TaskList student3 = new Student3TaskList();
-        TaskList student4 = new Student4TaskList();
+        TaskList student1 = new StudentTaskList("Student 1 Task List");
+        TaskList student2 = new StudentTaskList("Student 2 Task List");
+        TaskList student3 = new StudentTaskList("Student 3 Task List");
+        TaskList student4 = new StudentTaskList("Student 4 Task List");
 
         Mentor mentor1 = new Mentor("Adam Kowalski");
         Mentor mentor2 = new Mentor("Monika Klich");
