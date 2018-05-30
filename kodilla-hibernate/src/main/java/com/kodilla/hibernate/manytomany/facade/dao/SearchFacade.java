@@ -20,13 +20,13 @@ public class SearchFacade {
         if (nameFragment.length() < 1) {
             throw new SearchException(SearchException.ERR_ZEROLETERS_STRING);
         }
-        return companyDao.retrievedCompaniesByAnyGivenNameFragment(nameFragment);
+        return companyDao.retrievedCompaniesByAnyGivenNameFragment("%" + nameFragment + "%");
     }
 
     public List<Employee> retrieveEmployeesByAnyGivenLastNameFragment(final String lastNameFragment) throws SearchException {
         if (lastNameFragment.length() < 1) {
             throw new SearchException(SearchException.ERR_ZEROLETERS_STRING);
         }
-        return employeeDao.retrievedEmployeesByAnyGivenLastNameFragment(lastNameFragment);
+        return employeeDao.retrievedEmployeesByAnyGivenLastNameFragment("%" + lastNameFragment + "%");
     }
 }
