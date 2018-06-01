@@ -2,11 +2,9 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
-import com.kodilla.hibernate.manytomany.facade.dao.CompanyDao;
-import com.kodilla.hibernate.manytomany.facade.dao.EmployeeDao;
-import com.kodilla.hibernate.manytomany.facade.dao.SearchFacade;
-import org.junit.Assert;
-import org.junit.Test;
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
+import org.junit.Assert;import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,7 +35,6 @@ public class SearchFacadeTestSuite {
         employee2.getCompanies().add(company1);
 
         companyDao.save(company1);
-        long softwareMachineId = company1.getId();
 
         //When
         List<Employee> employeesByAnyGivenLastNameFragment = searchFacade.retrieveEmployeesByAnyGivenLastNameFragment("o");
